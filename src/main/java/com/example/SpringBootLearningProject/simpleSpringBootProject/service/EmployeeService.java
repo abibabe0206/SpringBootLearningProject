@@ -3,15 +3,12 @@ package com.example.SpringBootLearningProject.simpleSpringBootProject.service;
 
 import com.example.SpringBootLearningProject.simpleSpringBootProject.exception.UserNotFoundException;
 import com.example.SpringBootLearningProject.simpleSpringBootProject.model.employes.Employee;
-import com.example.SpringBootLearningProject.simpleSpringBootProject.model.student.Student;
 import com.example.SpringBootLearningProject.simpleSpringBootProject.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 
 
@@ -72,7 +69,8 @@ public class EmployeeService {
         return employeeRepository.findEmployeeById(id)
                 .orElseThrow(
                     () -> new UserNotFoundException(
-                        "User by id " + id + " was not found"                )
+                        "User by id " + id + " was not found"
+                    )
         );
     }
 

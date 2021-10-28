@@ -2,7 +2,6 @@ package com.example.SpringBootLearningProject.simpleSpringBootProject.controller
 
 
 import com.example.SpringBootLearningProject.simpleSpringBootProject.model.employes.Employee;
-import com.example.SpringBootLearningProject.simpleSpringBootProject.model.student.Student;
 import com.example.SpringBootLearningProject.simpleSpringBootProject.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
