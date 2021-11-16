@@ -42,11 +42,26 @@ public class EmployeeController {
     }
 
 
-    @PutMapping("/update")
-    public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
+    @PutMapping("/update/{employeeId}")
+    public ResponseEntity<Employee> updateEmployee(
+            @PathVariable("employeeId") Long employeeId,
+            @RequestBody Employee employee)  throws IllegalStateException {
+
+        Employee emp = employeeService.findEmployeeById(employeeId);
+
+
+        emp.setName(employee.getName());
+        emp.setEmail(employee.getEmail());
+        emp.setJobTitle(employee.getJobTitle());
+        emp.setPhoneNumber(employee.getPhoneNumber());
+        emp.setImageUrl(employee.getImageUrl());
+        final Employee updatedEmployee = employeeService.updateEmployee(emp);
+        return ResponseEntity.ok(updatedEmployee);
+    }
+    /*public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
         Employee updateEmployee = employeeService.updateEmployee(employee);
         return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
-    }
+    }*/
 
     @DeleteMapping("/{employeeId}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("employeeId") Long employeeId) {
