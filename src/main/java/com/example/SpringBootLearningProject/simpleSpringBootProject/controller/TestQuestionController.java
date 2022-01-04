@@ -25,7 +25,7 @@ public class TestQuestionController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TestQuestion>> getEmployees() {
+    public ResponseEntity<List<TestQuestion>> getTestQuestion() {
         List<TestQuestion> testQuestionList = testQuestionService.getTestQuestions();
         return new ResponseEntity<>(testQuestionList, HttpStatus.OK);
     }
